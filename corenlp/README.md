@@ -38,4 +38,5 @@ Once the CoreNLP server is running it can be accessed via http://localhost:9000.
 [TokensRegex](https://nlp.stanford.edu/software/tokensregex.html) can be used to evaluate regular expressions over text and tokens.
 
 * Example 1: Matching measures of thinks, e.g. '15 minutes', as two consecutive tokens, 1st with cardinality type and 2nd is a noun.
-    [{pos:CARD}][{pos:NN}]
+
+        [{pos:CARD}][{pos:NN}]
