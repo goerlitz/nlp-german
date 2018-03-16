@@ -10,8 +10,12 @@ The [CoreNLP server](https://stanfordnlp.github.io/CoreNLP/corenlp-server.html) 
 
 Running the CoreNLP server with support for German requires downloading the base CoreNLP package and the German language models.
 
-The official [CoreNLP server documentation](https://stanfordnlp.github.io/CoreNLP/corenlp-server.html) describes all necessary steps setup and run the server.
+The official [CoreNLP server documentation](https://stanfordnlp.github.io/CoreNLP/corenlp-server.html) describes all necessary steps to setup and run the server.
 However, to make things easier, we'll use a docker image which includes all required libraries and models.
+
+### Docker Image
+
+The [official docker image](https://hub.docker.com/r/motiz88/corenlp/) is outdated (last update end of 2015) and does not support German. Hence, we build our own.
 
 *Build docker image:*
 
@@ -29,7 +33,9 @@ Once the CoreNLP server is running it can be accessed via http://localhost:9000.
 
 ## Using the CoreNLP Server
 
-### Matching Tokens with TokenRegex
+### Matching Tokens with TokensRegex
 
-* Example 1: Two consecutive tokens with cardinality type and noun.
-  [{pos:CARD}][{pos:NN}]
+[TokensRegex](https://nlp.stanford.edu/software/tokensregex.html) can be used to evaluate regular expressions over text and tokens.
+
+* Example 1: Matching measures of thinks, e.g. '15 minutes', as two consecutive tokens, 1st with cardinality type and 2nd is a noun.
+    [{pos:CARD}][{pos:NN}]
