@@ -39,11 +39,11 @@ There is a list of python wrappers on the CoreNLP homepage. Following wrapper ha
 
 Small and easy to use wrapper. But only works with Unicode when Python 3 is used. Has not been updated since 2016. (Probably does not support the latest updates of CoreNLP with TokenRegex).
 
-Install:
+_Install:_
 ```sh
 pip install pycorenlp
 ```
-Basic Usage:
+_Basic Usage:_
 ```python
 from pycorenlp import StanfordCoreNLP
 nlp = StanfordCoreNLP('http://localhost:9000/')
@@ -54,15 +54,31 @@ print(nlp.annotate('Köln is a city in Germany.'))
 
 Annotate() returns the raw json response without parsing. But there are some nice helper functions for pos-tags, ner, etc. However, each call to a helper function sends a new request.
 
+_Install:_
 ```sh
 pip install stanfordcorenlp
 ```
+_Basic Usage:_
 ```python
 from stanfordcorenlp import StanfordCoreNLP
 nlp = StanfordCoreNLP('http://localhost', port=9000)
 print(nlp.annotate('Köln is a city in Germany.'))
 ```
 
+### (https://github.com/stanfordnlp/python-stanford-corenlp) by Arun Chaganty
+
+Does not work, throws Exceptions -- maybe outdated! (tested with Python 3)
+
+_Install:_
+```sh
+pip install stanford-corenlp
+```
+_Basic Usage:_
+```python
+from corenlp import CoreNLPClient
+nlp = CoreNLPClient(start_server=False, endpoint='http://192.168.178.20:9000/')
+print(nlp.annotate('Köln is a city in Germany.'))
+```
 
 ## Using the CoreNLP Server
 
