@@ -33,7 +33,7 @@ Once the CoreNLP server is running it can be accessed via http://localhost:9000.
 
 ## CoreNLP Python Wrappers
 
-There is a list of python wrappers on the CoreNLP homepage. Following wrapper have been tested.
+There is a [list of python wrappers](https://stanfordnlp.github.io/CoreNLP/other-languages.html#python) on the CoreNLP homepage. Following wrapper have been tested.
 
 ### [stanfordcorenlp](https://github.com/Lynten/stanford-corenlp) by Lynten
 
