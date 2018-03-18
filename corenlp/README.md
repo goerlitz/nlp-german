@@ -71,7 +71,7 @@ print(nlp.annotate('Köln is a city in Germany.'))
 
 ### [stanford-corenlp](https://github.com/stanfordnlp/python-stanford-corenlp) by Arun Chaganty
 
-:x: Throws Protobuf Exception, was not able to set json format! (tested with Python 3)
+:x: Cannot set json output format; server thrown throws protobuf exception! (tested with Python 3)
 
 _Install:_
 ```sh
@@ -84,9 +84,24 @@ nlp = CoreNLPClient(start_server=False, endpoint='http://localhost:9000/')
 print(nlp.annotate('Köln is a city in Germany.'))
 ```
 
+### [pynlp](https://github.com/sina-al/pynlp) by Sina
+
+:x: Cannot set json output format; server thrown throws protobuf exception! (tested with Python 3)
+
+_Install:_
+```sh
+pip install pynlp
+```
+_Basic Usage:_
+```python
+from pynlp import StanfordCoreNLP
+nlp = StanfordCoreNLP(host='localhost', port=9000, annotators='tokenize, ssplit, pos')
+print(nlp('Köln is a city in Germany.'))
+```
+
 ### [stanford-corenlp](https://github.com/hhsecond/corenlp_pywrap) by Sherin Thomas
 
-:x: Bad implementation. Unicode is broken. Annotators have to be set with constructor. Response object has to be processed manually. Only works with Python 3.
+:x: Bad implementation. Unicode is broken. Annotators have to be set with constructor. Only works with Python 3.
 
 _Install:_
 ```sh
@@ -96,7 +111,7 @@ _Basic Usage:_
 ```python
 from corenlp_pywrap import pywrap
 nlp = pywrap.CoreNLP(url='http://localhost:9000', annotator_list='tokenize ssplit pos'.split())
-print(nlp.basic(u'Köln is a city in Germany.', out_format='json').json())
+print(nlp.basic(u'Köln is a city in Germany.').json())
 ```
 
 ## Using the CoreNLP Server
