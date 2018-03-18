@@ -69,11 +69,11 @@ nlp = StanfordCoreNLP('http://localhost:9000/')
 print(nlp.annotate('Köln is a city in Germany.'))
 ```
 
-### [NLTK]
+### [NLTK](https://www.nltk.org/api/nltk.tag.html#nltk.tag.stanford.CoreNLPTagger)
 
-:heavy_check_mark: Easy integration of POS tagger and NER tagger.
+:heavy_check_mark: Easy to use POS and NER tagger.
 
-:heavy_exclamation_mark: Missing documentation. Only specialized wrapper for CoreNLP (just POS and NER). Sentence splitting has to be done with NLTK tokenizers.
+:heavy_exclamation_mark: Poor documentation. Supports only POS and NER tagger. Restricted to one sentence, i.e. sentence splitting has to be done with NLTK tokenizers.
 
 _Install:_
 ```sh
