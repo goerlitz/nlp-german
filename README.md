@@ -2,11 +2,14 @@
 
 An evaluation of different NLP toolkits with focus on processing German texts.
 
-## NLP Toolkits
+## NLP Tools
 
-* [NLTK](http://www.nltk.org/)
-* [Stanford CoreNLP](https://stanfordnlp.github.io/CoreNLP/index.html)
-* [spaCy](https://spacy.io/)
+* [NLTK](http://www.nltk.org/), Python
+* [Stanford CoreNLP](https://stanfordnlp.github.io/CoreNLP/index.html), Java + many bindings (GPL 3.0)
+* [spaCy](https://spacy.io/), Python
+* [Pattern](https://www.clips.uantwerpen.be/pattern), Python 2
+* [TextBlob](http://textblob.readthedocs.io/en/dev/), Python
+* [Apache OpenNLP](http://opennlp.apache.org/), Java (Apache License)
 
 ## Jupyter Notebooks
 

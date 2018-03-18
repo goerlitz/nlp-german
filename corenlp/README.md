@@ -33,11 +33,103 @@ Once the CoreNLP server is running it can be accessed via http://localhost:9000.
 
 ## CoreNLP Python Wrappers
 
-There is a list of python wrappers on the CoreNLP homepage. Following wrapper have been tested.
+There is a [list of python wrappers](https://stanfordnlp.github.io/CoreNLP/other-languages.html#python) on the CoreNLP homepage. Following wrapper have been tested.
 
-### [py-corenlp](https://github.com/smilli/py-corenlp)
+### [stanfordcorenlp](https://github.com/Lynten/stanford-corenlp) by Lynten
 
-Small and easy to use wrapper. Works well with Python 3. Have some Unicode issues with Pathon 2. Has not been updated since 2016. (Probably does not support the latest updates of CoreNLP with TokenRegex).
+:heavy_check_mark: Easy to use with some nice helper functions for pos-tags, ner, etc.
+
+:heavy_exclamation_mark: Response of annotate() returns raw json text without parsing. Each call to a helper function sends a new request.
+
+_Install:_
+```sh
+pip install stanfordcorenlp
+```
+_Basic Usage:_
+```python
+from stanfordcorenlp import StanfordCoreNLP
+nlp = StanfordCoreNLP('http://localhost', port=9000)
+print(nlp.annotate('Köln is a city in Germany.'))
+```
+
+### [py-corenlp](https://github.com/smilli/py-corenlp) by Smitha Milli
+
+:heavy_check_mark: Small and easy to use wrapper.
+
+:heavy_exclamation_mark: Unicode only works with Python 3. Has not been updated since 2016. (Probably does not support the latest updates of CoreNLP with TokenRegex).
+
+_Install:_
+```sh
+pip install pycorenlp
+```
+_Basic Usage:_
+```python
+from pycorenlp import StanfordCoreNLP
+nlp = StanfordCoreNLP('http://localhost:9000/')
+print(nlp.annotate('Köln is a city in Germany.'))
+```
+
+### [NLTK](https://www.nltk.org/api/nltk.tag.html#nltk.tag.stanford.CoreNLPTagger)
+
+:heavy_check_mark: Easy to use POS and NER tagger.
+
+:heavy_exclamation_mark: Poor documentation. Supports only POS and NER tagger. Restricted to one sentence, i.e. sentence splitting has to be done with NLTK tokenizers.
+
+_Install:_
+```sh
+pip install nltk
+```
+_Basic Usage:_
+```python
+from nltk.tag.stanford import CoreNLPPOSTagger
+nlp = CoreNLPPOSTagger(url='http://localhost:9000')
+print(nlp.tag(['Köln is a city in Germany.']))
+```
+
+### [stanford-corenlp](https://github.com/stanfordnlp/python-stanford-corenlp) by Arun Chaganty
+
+:x: Cannot set json output format; server thrown throws protobuf exception! (tested with Python 3)
+
+_Install:_
+```sh
+pip install stanford-corenlp
+```
+_Basic Usage:_
+```python
+from corenlp import CoreNLPClient
+nlp = CoreNLPClient(start_server=False, endpoint='http://localhost:9000/')
+print(nlp.annotate('Köln is a city in Germany.'))
+```
+
+### [pynlp](https://github.com/sina-al/pynlp) by Sina
+
+:x: Cannot set json output format; server thrown throws protobuf exception! (tested with Python 3)
+
+_Install:_
+```sh
+pip install pynlp
+```
+_Basic Usage:_
+```python
+from pynlp import StanfordCoreNLP
+nlp = StanfordCoreNLP(host='localhost', port=9000, annotators='tokenize, ssplit, pos')
+print(nlp('Köln is a city in Germany.'))
+```
+
+### [stanford-corenlp](https://github.com/hhsecond/corenlp_pywrap) by Sherin Thomas
+
+:x: Bad implementation. Unicode is broken. Annotators have to be set with constructor. Only works with Python 3.
+
+_Install:_
+```sh
+pip install corenlp_pywrap
+```
+_Basic Usage:_
+```python
+from corenlp_pywrap import pywrap
+nlp = pywrap.CoreNLP(url='http://localhost:9000', annotator_list='tokenize ssplit pos'.split())
+print(nlp.basic(u'Köln is a city in Germany.').json())
+```
 
 ## Using the CoreNLP Server
 
