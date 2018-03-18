@@ -69,6 +69,23 @@ nlp = StanfordCoreNLP('http://localhost:9000/')
 print(nlp.annotate('Köln is a city in Germany.'))
 ```
 
+### [NLTK]
+
+:heavy_check_mark: Easy integration of POS tagger and NER tagger.
+
+:heavy_exclamation_mark: Missing documentation. Only specialized wrapper for CoreNLP (just POS and NER). Sentence splitting has to be done with NLTK tokenizers.
+
+_Install:_
+```sh
+pip install nltk
+```
+_Basic Usage:_
+```python
+from nltk.tag.stanford import CoreNLPPOSTagger
+nlp = CoreNLPPOSTagger(url='http://localhost:9000')
+print(nlp.tag(['Köln is a city in Germany.']))
+```
+
 ### [stanford-corenlp](https://github.com/stanfordnlp/python-stanford-corenlp) by Arun Chaganty
 
 :x: Cannot set json output format; server thrown throws protobuf exception! (tested with Python 3)
